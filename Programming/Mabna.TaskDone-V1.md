@@ -2,7 +2,7 @@
 
 This content provides the basic check list which can be used just after a task has been done. 
 
-### Checklist
+### Start of the Checklist
 
 - [ ] Expand Options
 - [ ] Sort Options
@@ -18,3 +18,8 @@ This content provides the basic check list which can be used just after a task h
   - [ ] Data
   - [ ] Update
   - [ ] `Build.Database.proj` file
+- [ ] Api documentation
+- [ ] Sdk
+
+
+### End of the Checklist
