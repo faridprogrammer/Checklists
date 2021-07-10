@@ -4,7 +4,6 @@ This content provides the basic check list which can be used just before heading
 
 ### Start of the Checklist
 
-- [ ] Health
   - [ ] Face mask
   - [ ] Disinfectant spray
   - [ ] Disposable gloves
