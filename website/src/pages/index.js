@@ -1,14 +1,12 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import kebabCase from "lodash/kebabCase"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const posts = data.allChecklistsJson.nodes
 
   if (posts.length === 0) {
     return (
@@ -22,34 +20,42 @@ const BlogIndex = ({ data, location }) => {
       </Layout>
     )
   }
+  function getTagClass(tag) {
+    if (tag === 'travel') {
+      return 'bg-yellow';
+    }
+    if (tag === 'easy') {
+      return 'bg-green';
+    }
+    if (tag === 'hard') {
+      return 'bg-red';
+    }
+    if (tag === 'development') {
+      return 'bg-blue';
+    }
+    if (tag === 'project') {
+      return 'yellow';
+    }
+    if (tag === 'management') {
+      return 'bg-red';
 
+    }
+  }
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All" />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h5>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h5>
-                  <small><b>{post.frontmatter.date}</b></small>
-                  {post.frontmatter.tags.map(tag => { return (<small class='label info'> <Link style={{"font-size":10, textDecoration:"none", color:"white"}} to={`/tags/${kebabCase(tag)}/`}>{tag}</Link> </small>) })}
-                </header>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+      <Seo title="All" />
+      {posts.map(post => {
+        const title = post.title || post.slug
+        return (
+          <Link to={post.slug} itemProp="url">
+            <div class="flex-container">
+              <div class="checklist-title">{title}</div>
+              {post.tags.map(tag => { return (<div className={`tag ${getTagClass(tag)}`}></div>) })}
+            </div>
+          </Link>
+        )
+      })}
     </Layout>
   )
 }
@@ -63,18 +69,16 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allChecklistsJson(sort: {fields: date, order: DESC}, limit: 1000) {
       nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          tags
-        }
+        description
+        id
+        date(formatString: "MMMM DD, YYYY")
+        tags
+        title
+        source
+        abstract
+        slug
       }
     }
   }

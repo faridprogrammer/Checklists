@@ -6,28 +6,38 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
+  const post = data.checklistsJson
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
+
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={post.title}
+        description={post.description}
       />
       <article
         className="blog-post"
         itemScope
-        itemType="http://schema.org/Article"
-      >
+        itemType="http://schema.org/Article">
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <h1 itemProp="headline">{post.title}</h1>
+          <p>{post.date}</p>
         </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
+        <section class="checkboxes">
+          {
+            post.items.map((itemTxt) => {
+              return (
+                <label class="checkbox-container">{itemTxt}
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              )
+            })
+          }
+          {JSON.stringify()}
+        </section>
         <hr />
         <footer>
           <Bio />
@@ -45,15 +55,15 @@ const BlogPostTemplate = ({ data, location }) => {
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+              <Link to={previous.slug} rel="prev">
+                ← {previous.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+              <Link to={next.slug} rel="next">
+                {next.title} →
               </Link>
             )}
           </li>
@@ -76,33 +86,22 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    checklistsJson(id: { eq: $id }) {
       id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-        source
-        tags
-      }
+      title
+      date(formatString: "MMMM DD, YYYY")
+      description
+      source
+      items
+      tags
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
+    previous: checklistsJson(id: { eq: $previousPostId }) {
+      slug
+      title
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
+    next: checklistsJson(id: { eq: $nextPostId }) {
+      slug
+      title
     }
   }
 `

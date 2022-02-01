@@ -251,7 +251,7 @@ a:focus {
 }
 
 .global-header {
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-6);
 }
 
 .main-heading {
@@ -332,19 +332,131 @@ a:focus {
   }
 }
 
-
-
 .label {
   color: white;
   padding: 5px;
   margin: 5px;
-text-decoration: none;
+  text-decoration: none;
 }
 
-.success {background-color: #04AA6D;} /* Green */
-.info {background-color: rgb(0, 91, 153);
-  color:white !important
+.success {
+  background-color: #04aa6d;
+} /* Green */
+.info {
+  background-color: rgb(0, 91, 153);
+  color: white !important;
 } /* Blue */
-.warning {background-color: #ff9800;} /* Orange */
-.danger {background-color: #f44336;} /* Red */
-.other {background-color: #e7e7e7; color: black;} /* Gray */
+.warning {
+  background-color: #ff9800;
+} /* Orange */
+.danger {
+  background-color: #f44336;
+} /* Red */
+.other {
+  background-color: #e7e7e7;
+  color: black;
+} /* Gray */
+
+/* Customize the label (the container) */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.flex-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  flex-flow: row;
+}
+
+.flex-container div.tag {
+  width: 20px;
+  height: 50px;
+  margin: 0px;
+  text-align: center;
+}
+.flex-container div.checklist-title {
+  flex-grow: 4;
+}
+
+.bg-green {
+  background-color: #04aa6d;
+}
+
+.bg-blue {
+  background-color: rgb(0, 91, 153);
+  color: white !important;
+} /* Blue */
+.bg-yellow {
+  background-color: #ff9800;
+} /* Orange */
+.bg-red {
+  background-color: #f44336;
+} /* Red */
+.bg-white {
+  background-color: #e7e7e7;
+  color: black;
+} /* Gray */

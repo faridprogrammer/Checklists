@@ -4,12 +4,11 @@ import PropTypes from "prop-types"
 // Components
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import Bio from "../components/bio"
 
 const Tags = ({ pageContext, data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
+  const { edges, totalCount } = data.allChecklistsJson
   const tagHeader = `${totalCount} checklist${totalCount === 1 ? "" : "s"} tagged with "${tag}"`
 
   return (
@@ -18,11 +17,9 @@ const Tags = ({ pageContext, data, location }) => {
         <h1>{tagHeader}</h1>
         <ul>
           {edges.map(({ node }) => {
-            const { slug } = node.fields
-            const { title } = node.frontmatter
             return (
-              <li key={slug}>
-                <Link to={slug}>{title}</Link>
+              <li key={node.slug}>
+                <Link to={node.slug}>{node.title}</Link>
               </li>
             )
           })}
@@ -42,7 +39,7 @@ Tags.propTypes = {
     tag: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allChecklistsJson: PropTypes.shape({
       totalCount: PropTypes.number.isRequired,
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -69,20 +66,16 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    allChecklistsJson(
       limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      sort: {fields: date, order: DESC}
+      filter: { tags: { in: [$tag] } }
     ) {
       totalCount
       edges {
         node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-          }
+          slug
+          title
         }
       }
     }
