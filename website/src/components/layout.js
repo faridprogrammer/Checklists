@@ -1,21 +1,27 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import * as croma from "chroma-js"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
 
+  function clickHeader(e)
+  {
+    document.body.style.background = croma('white');
+  }
+
   if (isRootPath) {
     header = (
       <h1 className="main-heading">
-        <Link to="/">{title}</Link>
+        <Link onClick={clickHeader} to="/">{title}</Link>
       </h1>
     )
   } else {
     header = (
       <h1 className="main-heading">
-        <Link to="/">
+        <Link onClick={clickHeader} to="/">
           {title}
         </Link>
       </h1>

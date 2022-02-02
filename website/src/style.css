@@ -243,7 +243,7 @@ a:focus {
 .global-wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
+  padding: var(--spacing-5) var(--spacing-5);
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
@@ -326,6 +326,7 @@ a:focus {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
     margin-left: var(--spacing-0);
   }
+
   ul,
   ol {
     list-style-position: inside;
@@ -341,21 +342,31 @@ a:focus {
 
 .success {
   background-color: #04aa6d;
-} /* Green */
+}
+
+/* Green */
 .info {
   background-color: rgb(0, 91, 153);
   color: white !important;
-} /* Blue */
+}
+
+/* Blue */
 .warning {
   background-color: #ff9800;
-} /* Orange */
+}
+
+/* Orange */
 .danger {
   background-color: #f44336;
-} /* Red */
+}
+
+/* Red */
 .other {
   background-color: #e7e7e7;
   color: black;
-} /* Gray */
+}
+
+/* Gray */
 
 /* Customize the label (the container) */
 .checkbox-container {
@@ -432,31 +443,40 @@ a:focus {
   flex-flow: row;
 }
 
+.flex-container div.checklist-title {
+  align-items: center;
+  display: flex;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 10px;
+  font-size: 1.25rem;
+}
+
+.tag-container {
+  display: flex;
+  flex-basis: 10%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
 .flex-container div.tag {
-  width: 20px;
-  height: 50px;
+  height: 40px;
   margin: 0px;
   text-align: center;
-}
-.flex-container div.checklist-title {
-  flex-grow: 4;
+  flex-grow: 1;
 }
 
-.bg-green {
-  background-color: #04aa6d;
-}
-
-.bg-blue {
-  background-color: rgb(0, 91, 153);
-  color: white !important;
-} /* Blue */
-.bg-yellow {
-  background-color: #ff9800;
-} /* Orange */
-.bg-red {
-  background-color: #f44336;
-} /* Red */
-.bg-white {
-  background-color: #e7e7e7;
+.checklist-poster {
+  height: 40px;
+  font-family: var(--fontFamily-sans);
+  text-decoration: none;
+  font-size: 1rem;
   color: black;
-} /* Gray */
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.checklist-item{
+  font-family: var(--fontFamily-sans);
+}

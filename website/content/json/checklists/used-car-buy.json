@@ -1,0 +1,25 @@
+{
+  "title": "Buy used cars",
+  "slug": "BuyUsedCars",
+  "date": "2022-02-05T15:20:03.284Z",
+  "description": "Checklist for buying used cars",
+  "source": "https://www.autoexpress.co.uk/car-news/used-car-guide/66420/used-car-checklist-what-to-look-for-when-buying-a-second-hand-car",
+  "author":{
+    "name": "Farid Bekran",
+    "twitter": "faridprogrammer",
+    "email": "faridbekran15@gmail.com"
+  },
+  "tags": [
+    "car",
+    "buy"
+  ],
+  "items": [
+    "Engine - Check for leaks, oil level, head gasket condition and exhaust smoke",
+    "Gearbox and clutch - Feel and listen to the smoothness of the gear change, and test the clutch biting point",
+    "Bodywork - Check the outside and underneath – a torch is useful for the latter",
+    "Wheels and tyres - Tread depth, rubber condition and makes of each tyre",
+    "Interior - Check the boot, dash (for mileage and warning lights) and electronics thoroughly",
+    "Test drive - Drive it until you have checked everything you want to",
+    "Documents - Legal documents of the car"
+  ]
+}

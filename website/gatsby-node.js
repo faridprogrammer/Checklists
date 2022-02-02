@@ -6,7 +6,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPost = path.resolve(`./src/templates/checklist-post.js`)
   const tagTemplate = path.resolve("src/templates/tags.js")
 
   // Get all json checklists sorted by date
@@ -20,6 +20,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             date
             tags
             title
+            author{
+              name
+              twitter
+              email
+            }
             items
             source
             abstract
@@ -113,6 +118,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Author {
       name: String
       summary: String
+      twitter: String
     }
 
     type Social {
@@ -123,6 +129,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      author: Author
       slug: String
     }
   `)

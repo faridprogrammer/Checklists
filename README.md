@@ -3,8 +3,9 @@
 > _Guy Kawasaki_
 > 
 
+
 # Checklists
-Number of useful checklists for personal use
+Number of curated and useful checklists. 
 
 # Where is it? 
 

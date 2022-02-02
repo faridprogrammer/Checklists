@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Layout from "../components/layout"
-
+import globals from "../globals"
 // Utilities
 import kebabCase from "lodash/kebabCase"
 
@@ -18,6 +18,7 @@ const TagsPage = ({
     },
     location
 }) => {
+    globals.resetBackgroundColor(); 
     let staticTitle = "Check lists";
     return (
         <Layout location={location} title={staticTitle}>

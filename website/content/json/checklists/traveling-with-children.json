@@ -4,6 +4,11 @@
   "date": "2022-01-12T14:12:03.284Z",
   "description": "A check list for traveling with children",
   "source": "https://www.checkli.com/checklists/perfectlyplanned/the-survivors-guide-to-traveling-with-children",
+  "author":{
+    "name": "Farid Bekran",
+    "twitter": "faridprogrammer",
+    "email": "faridbekran15@gmail.com"
+  },
   "tags": [
     "travel",
     "hard",

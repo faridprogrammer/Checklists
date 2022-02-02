@@ -1,16 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
+import globals from "../globals"
 
 // Components
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 
 const Tags = ({ pageContext, data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { tag } = pageContext
-  const { edges, totalCount } = data.allChecklistsJson
-  const tagHeader = `${totalCount} checklist${totalCount === 1 ? "" : "s"} tagged with "${tag}"`
+  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const { tag } = pageContext;
+  const { edges, totalCount } = data.allChecklistsJson;
+  const tagHeader = `${totalCount} checklist${totalCount === 1 ? "" : "s"} tagged with "${tag}"`;
 
+  globals.resetBackgroundColor();
   return (
     <Layout location={location} title={siteTitle}>
       <div>

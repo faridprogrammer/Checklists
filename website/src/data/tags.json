@@ -1,0 +1,38 @@
+{
+    "buy": {
+        "color": "#ff9800"
+    },
+    "car": {
+        "color": "purple"
+    },
+    "homemadesimple.com": {
+        "color": "#ff9800"
+    },
+    "house": {
+        "color": "gray"
+    },
+    "cleaning": {
+        "color": "#005b99"
+    },
+    "children": {
+        "color": "#f7be69"
+    },
+    "management": {
+        "color": "#b86f02"
+    },
+    "project": {
+        "color": "#ff9800"
+    },
+    "development": {
+        "color": "#005b99"
+    },
+    "hard": {
+        "color": "#86241d"
+    },
+    "easy": {
+        "color": "#3fca97"
+    },
+    "travel": {
+        "color": "#013558"
+    }
+}

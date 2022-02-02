@@ -1,12 +1,14 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import globals from "../globals"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allChecklistsJson.nodes
+
+  globals.resetBackgroundColor(); 
 
   if (posts.length === 0) {
     return (
@@ -20,38 +22,19 @@ const BlogIndex = ({ data, location }) => {
       </Layout>
     )
   }
-  function getTagClass(tag) {
-    if (tag === 'travel') {
-      return 'bg-yellow';
-    }
-    if (tag === 'easy') {
-      return 'bg-green';
-    }
-    if (tag === 'hard') {
-      return 'bg-red';
-    }
-    if (tag === 'development') {
-      return 'bg-blue';
-    }
-    if (tag === 'project') {
-      return 'yellow';
-    }
-    if (tag === 'management') {
-      return 'bg-red';
-
-    }
-  }
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All" />
-      <Seo title="All" />
       {posts.map(post => {
-        const title = post.title || post.slug
+        const title = post.title || post.slug;
+        post.tags.sort();
         return (
-          <Link to={post.slug} itemProp="url">
-            <div class="flex-container">
+          <Link to={post.slug} itemProp="url" class="checklist-poster">
+            <div class="flex-container" style={{ 'margin-bottom': '10px' }}>
+              <div className="tag-container">
+                {post.tags.map(tag => { return (<div style={{ 'background-color': globals.getTagColor(tag) }} className={`tag`}></div>) })}
+              </div>
               <div class="checklist-title">{title}</div>
-              {post.tags.map(tag => { return (<div className={`tag ${getTagClass(tag)}`}></div>) })}
             </div>
           </Link>
         )

@@ -4,6 +4,11 @@
   "date": "2022-01-25T14:12:03.284Z",
   "description": "5 tips for beginners",
   "source": "https://sensu.io/blog/software-development-best-practices-checklist-5-tips-for-beginners",
+  "author":{
+    "name": "Farid Bekran",
+    "twitter": "faridprogrammer",
+    "email": "faridbekran15@gmail.com"
+  },
   "tags": [
     "development",
     "easy"

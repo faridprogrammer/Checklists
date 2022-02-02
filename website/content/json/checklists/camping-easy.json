@@ -4,6 +4,11 @@
 "date": "2022-01-04T12:12:03.284Z",
 "description": "A check list for easy camping trip prepration",
 "source": "",
+"author":{
+  "name": "Farid Bekran",
+  "twitter": "faridprogrammer",
+  "email": "faridbekran15@gmail.com"
+},
 "tags": [
     "travel",
     "easy"
