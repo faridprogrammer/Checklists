@@ -75,6 +75,68 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        // A unique name for the search index. This should be descriptive of
+        // what the index contains. This is required.
+        name: 'checklists',
+
+        // Set the search engine to create the index. This is required.
+        // The following engines are supported: flexsearch, lunr
+        engine: 'flexsearch',
+
+        // Provide options to the engine. This is optional and only recommended
+        // for advanced users.
+        //
+        // Note: Only the flexsearch engine supports options.
+        engineOptions: {
+          tokenize: "forward"
+        },
+        // GraphQL query used to fetch all data for the search index. This is
+        // required.
+        query: `
+          {
+            allChecklistsJson {
+              nodes {
+                description
+                title
+                slug,
+                tags
+              }
+            }          
+          }
+        `,
+
+        // Field used as the reference value for each document.
+        // Default: 'id'.
+        ref: 'slug',
+
+        // List of keys to index. The values of the keys are taken from the
+        // normalizer function below.
+        // Default: all fields
+        index: ['title'],
+
+        // List of keys to store and make available in your UI. The values of
+        // the keys are taken from the normalizer function below.
+        // Default: all fields
+        store: ['slug', 'title', 'description', 'tags'],
+
+        // Function used to map the result from the GraphQL query. This should
+        // return an array of items to index in the form of flat objects
+        // containing properties to index. The objects must contain the `ref`
+        // field above (default: 'id'). This is required.
+
+        normalizer: ({ data }) =>
+          data.allChecklistsJson.nodes.map((node) => ({
+            id: node.id,
+            slug: node.slug,
+            title: node.title,
+            description: node.description,
+            tags: node.tags
+          })),
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
