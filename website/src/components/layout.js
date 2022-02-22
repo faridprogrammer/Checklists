@@ -7,8 +7,7 @@ const Layout = ({ location, title, children }) => {
   const isRootPath = location.pathname === rootPath
   let header
 
-  function clickHeader(e)
-  {
+  function clickHeader(e) {
     document.body.style.background = croma('white');
   }
 
@@ -32,10 +31,13 @@ const Layout = ({ location, title, children }) => {
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
       <main>{children}</main>
-      <footer>
+      <footer style={{ textAlign: 'center' }}>
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <div>
+          <Link to="/about">About</Link>
+        </div>
       </footer>
     </div>
   )
