@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import globals from "../globals"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -16,7 +16,6 @@ const BlogPostTemplate = ({ data, location }) => {
   globals.resetBackgroundColor();
 
   const handleCheck = (evt) => {
-    const name = evt.target.name;
     const checked = evt.target.checked;
     if (checked) {
       backGroundColor[0] = backGroundColor[0] - (100 / post.items.length);
@@ -48,7 +47,7 @@ const BlogPostTemplate = ({ data, location }) => {
           width={50}
           height={50}
           quality={95}
-          alt="Profile picture"
+          alt=""
         />
         {post.author?.name && (
           <p>

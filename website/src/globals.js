@@ -1,4 +1,4 @@
-import tags from "./data/tags.json"
+import tags from "./data/json/tags.json"
 import * as croma from "chroma-js"
 
 const isBrowser = typeof window !== "undefined"
