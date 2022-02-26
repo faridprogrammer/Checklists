@@ -1,3 +1,5 @@
+# Philosophy
+
 > _My books are always tactical, bullet lists, this is what you need to do because I'm trying to appeal to people who are trying to change the world and they need **checklists**._
 > 
 > _Guy Kawasaki_
@@ -5,6 +7,7 @@
 
 
 # Checklists
+
 Number of curated and useful checklists. 
 
 # Where is it? 
@@ -12,7 +15,7 @@ Number of curated and useful checklists.
 To see the list of checklists (:D) go to the following address.
 
 
-# What is it? (Realy??!!)
+# What is it?
 
 This repository contains some checklists for those who think the checklists are useful and using them. 
 The checklists available here can be gathered from elsewhere which in these cases the source of checklists is provided to the user.
@@ -21,10 +24,13 @@ The checklists available here can be gathered from elsewhere which in these case
 
 Certainly there are excelent websites and apps to find checklists. But I needed a simple alternative which can be easily managed.
 
+# Output
+
+You can checkout the output of checklists on [check-lists.ir](http://check-lists.ir)
 
 # Contribute
 
-You can add your checklist to this repository by adding a markdown file to the `website/content/blog` folder. 
+You can add your checklist to this repository by adding a markdown file to the `website/data/json/checklists` folder. 
 Your checklist should have the following conditions.
 
 1. It should be new (Not been mentioned in the repository before)
