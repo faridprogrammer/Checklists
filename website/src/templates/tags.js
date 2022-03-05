@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import globals from "../globals"
+import Seo from "../components/seo"
 
 // Components
 import { Link, graphql } from "gatsby"
@@ -15,13 +16,14 @@ const Tags = ({ pageContext, data, location }) => {
   globals.resetBackgroundColor();
   return (
     <Layout location={location} title={siteTitle}>
+      <Seo title={tag} />
       <div>
         <h1>{tagHeader}</h1>
         <ul>
           {edges.map(({ node }) => {
             return (
               <li key={node.slug}>
-                <Link to={node.slug}>{node.title}</Link>
+                <Link to={`/` + node.slug} itemProp="url">{node.title}</Link>
               </li>
             )
           })}

@@ -31,12 +31,14 @@ const Layout = ({ location, title, children }) => {
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
       <main>{children}</main>
-      <footer style={{ textAlign: 'center' }}>
+      <footer style={{ textAlign: 'center' }} className="small-txt">
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
         <div>
-          <Link to="/about">About</Link>
+          <Link className="small-txt" to="/about">About</Link>
+          {` `}|{` `}
+          <Link className="small-txt" to="/tags">Tags</Link>
         </div>
       </footer>
     </div>

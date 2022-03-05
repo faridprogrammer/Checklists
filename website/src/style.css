@@ -446,11 +446,15 @@ a:focus {
 .flex-container div.checklist-title {
   align-items: center;
   display: flex;
-  text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
   margin-left: 10px;
   font-size: 1.25rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  resize: horizontal;
+
 }
 
 .tag-container {
@@ -498,4 +502,16 @@ a:focus {
 .sticky-div {
     position: sticky;
     top: 0;
+}
+
+.long-and-truncated {
+  flex: 1;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.small-txt{
+  font-size: .7rem;
 }

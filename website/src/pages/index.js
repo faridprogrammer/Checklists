@@ -58,7 +58,7 @@ const BlogIndex = ({ data, location }) => {
               <div className="tag-container">
                 {post.tags.map(tag => { return (<div style={{ 'background-color': globals.getTagColor(tag) }} className={`tag`}></div>) })}
               </div>
-              <div class="checklist-title">{title}</div>
+              <div className="checklist-title long-and-truncated">{title}</div>
             </div>
           </Link>
         )
