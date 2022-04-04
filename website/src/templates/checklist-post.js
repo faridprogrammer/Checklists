@@ -6,6 +6,7 @@ import Seo from "../components/seo"
 import { LinkPreview } from '@dhaiwat10/react-link-preview';
 import * as md5 from "md5"
 import * as croma from "chroma-js"
+import { FacebookShareButton, FacebookIcon, TelegramShareButton, TelegramIcon, TwitterShareButton, TwitterIcon } from "react-share"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.checklistsJson
@@ -38,6 +39,34 @@ const BlogPostTemplate = ({ data, location }) => {
       </div>
     );
   }
+  const shareUrl = location.href;
+
+  const share = (
+    <div>
+      <TwitterShareButton
+        alt="Share on twitter"
+        url={shareUrl}
+        title={`Checkout the amazing "${post.title}" check list`}
+        className="share-btn">
+        <TwitterIcon size={32} round />
+      </TwitterShareButton>
+      <TelegramShareButton
+        alt="Share on telegram"
+        url={shareUrl}
+        title={`Checkout the amazing "${post.title}" check list`}
+        className="share-btn">
+        <TelegramIcon size={32} round />
+      </TelegramShareButton>
+      <FacebookShareButton
+        alt="Share on facebook"
+        url={shareUrl}
+        quote={`Checkout the amazing "${post.title}" check list`}
+        className="share-btn">
+        <FacebookIcon size={32} round />
+      </FacebookShareButton>
+    </div>
+  );
+
   if (post.author) {
     author = (
       <div className="bio">
@@ -67,6 +96,7 @@ const BlogPostTemplate = ({ data, location }) => {
       <Seo
         title={post.title}
         description={post.description}
+        twitterHandle={post.author.twitter}
       />
       <article
         className="blog-post"
@@ -97,7 +127,14 @@ const BlogPostTemplate = ({ data, location }) => {
         <hr />
         <footer>
           {sourceLink}
-          {author}
+          <div className="footer-container">
+            <div>
+              {author}
+            </div>
+            <div style={{ "margin-left": "auto" }}>
+              {share}
+            </div>
+          </div>
         </footer>
       </article>
     </Layout>
