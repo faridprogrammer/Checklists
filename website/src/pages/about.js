@@ -11,7 +11,7 @@ const AboutPage = ({ data, location }) => {
 
     return (
         <Layout location={location} title={siteTitle}>
-            <Seo title="About" />
+            <Seo title="Check lists | About" />
             <h4>What is it?</h4>
             <p>
                 This website contains some checklists for those who think the checklists are useful and using them.<br/>

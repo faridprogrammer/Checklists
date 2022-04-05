@@ -8,7 +8,7 @@ module.exports = {
       summary: ``,
     },
     description: `A collection of checklists`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `http://checklists.ir`,
     social: {
       twitter: `faridprogrammer`,
     },

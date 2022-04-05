@@ -11,6 +11,7 @@
     "@dhaiwat10/react-link-preview": "^1.12.2",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "apexcharts": "^3.35.0",
     "chroma-js": "^2.4.2",
     "gatsby": "^4.4.0",
     "gatsby-plugin-gatsby-cloud": "^4.4.0",
@@ -38,6 +39,7 @@
     "react-helmet": "^6.1.0",
     "react-share": "^4.4.0",
     "react-use-flexsearch": "^0.1.1",
+    "treemap-squarify": "^1.0.1",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75"
   },

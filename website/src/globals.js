@@ -4,7 +4,9 @@ import * as croma from "chroma-js"
 const isBrowser = typeof window !== "undefined"
 
 const globals = {
-
+    isBrowser: function () {
+        return isBrowser;
+    },
     getTagColor: function (tag) {
         return (tags[tag] && tags[tag].color) || "silver";
     },
