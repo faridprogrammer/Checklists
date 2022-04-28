@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "check-lists",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A simple check list collection for check list lovers!",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Farid Bekran <faridbekran15@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/faridprogrammer/checklists/issues"
   },
   "dependencies": {
     "@dhaiwat10/react-link-preview": "^1.12.2",
@@ -32,6 +32,7 @@
     "gatsby-transformer-json": "^4.6.0",
     "gatsby-transformer-remark": "^5.4.0",
     "gatsby-transformer-sharp": "^4.4.0",
+    "github-fork-ribbon-css": "^0.2.3",
     "md5": "^2.3.0",
     "prismjs": "^1.25.0",
     "react": "^17.0.1",
@@ -46,7 +47,7 @@
   "devDependencies": {
     "prettier": "^2.5.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/faridprogrammer/checklists/#readme",
   "keywords": [
     "gatsby"
   ],
@@ -54,7 +55,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/faridprogrammer/checklists.git"
   },
   "scripts": {
     "build": "gatsby build",

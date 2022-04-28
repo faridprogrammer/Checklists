@@ -8,9 +8,10 @@ import * as md5 from "md5"
 import * as croma from "chroma-js"
 import { FacebookShareButton, FacebookIcon, TelegramShareButton, TelegramIcon, TwitterShareButton, TwitterIcon } from "react-share"
 
-const BlogPostTemplate = ({ data, location }) => {
+const ChecklistTemplate = ({ data, location }) => {
   const post = data.checklistsJson
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const demo = data.site.siteMetadata?.demo || false
   let sourceLink = null;
   let author = null;
   let backGroundColor = [255, 255, 255];
@@ -30,6 +31,8 @@ const BlogPostTemplate = ({ data, location }) => {
     }
   };
 
+  const demoSign = (
+    <a class="github-fork-ribbon" href="https://github.com/faridprogrammer/checklists" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>);
 
   if (post.source) {
     sourceLink = (
@@ -93,13 +96,14 @@ const BlogPostTemplate = ({ data, location }) => {
   }
   return (
     <Layout location={location} title={siteTitle}>
+      {demo && demoSign}
       <Seo
         title={post.title}
         description={post.description}
         twitterHandle={post.author.twitter}
       />
       <article
-        className="blog-post"
+        className="checklist-post"
         itemScope
         itemType="http://schema.org/Article">
         <header>
@@ -141,7 +145,7 @@ const BlogPostTemplate = ({ data, location }) => {
   )
 }
 
-export default BlogPostTemplate
+export default ChecklistTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
@@ -152,6 +156,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        demo
       }
     }
     checklistsJson(id: { eq: $id }) {

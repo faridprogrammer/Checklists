@@ -6,7 +6,7 @@ import globals from "../globals"
 import SearchBar from '../components/search';
 import { useFlexSearch } from 'react-use-flexsearch';
 
-const BlogIndex = ({ data, location }) => {
+const ChecklistsIndex = ({ data, location }) => {
   const isBrowser = typeof window !== "undefined";
   const unFlattenResults = results =>
     results.map(post => {
@@ -16,6 +16,7 @@ const BlogIndex = ({ data, location }) => {
 
 
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const isDemo = data.site.siteMetadata?.demo || false
   let posts = data.allChecklistsJson.nodes
   const index = data.localSearchChecklists.index;
   const store = data.localSearchChecklists.store;
@@ -28,9 +29,12 @@ const BlogIndex = ({ data, location }) => {
   const results = useFlexSearch(searchQuery, index, store);
   posts = searchQuery ? unFlattenResults(results) : posts;
 
+  const demoSign = (
+    <a class="github-fork-ribbon" href="https://github.com/faridprogrammer/checklists" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>);
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
+        {isDemo && demoSign}
         <Seo title="All" />
         <SearchBar
           searchQuery={searchQuery}
@@ -44,6 +48,7 @@ const BlogIndex = ({ data, location }) => {
   }
   return (
     <Layout location={location} title={siteTitle}>
+      {isDemo && demoSign}
       <Seo title="All" />
       <SearchBar
         searchQuery={searchQuery}
@@ -67,7 +72,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default ChecklistsIndex
 
 export const pageQuery = graphql`
   query {
@@ -78,6 +83,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        demo
       }
     }
     allChecklistsJson(sort: {fields: date, order: DESC}, limit: 1000) {

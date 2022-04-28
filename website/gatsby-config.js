@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/checklists.web",
+  // pathPrefix: "/checklists.web",
   siteMetadata: {
     title: `Check lists`,
     author: {
@@ -8,10 +8,11 @@ module.exports = {
       summary: ``,
     },
     description: `A collection of checklists`,
-    siteUrl: `http://checklists.ir`,
+    siteUrl: `http://check-lists.ir`,
     social: {
       twitter: `faridprogrammer`,
     },
+    demo: true
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -63,8 +64,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `check-lists`,
+        short_name: `check-lists`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website

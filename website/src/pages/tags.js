@@ -15,7 +15,7 @@ const TagsPage = ({
     data: {
         allChecklistsJson: { group },
         site: {
-            siteMetadata: { title },
+            siteMetadata: { title, demo },
         },
     },
     location
@@ -36,30 +36,35 @@ const TagsPage = ({
     globals.resetBackgroundColor();
 
     let staticTitle = "Check lists";
-    
-    function getXText(rectangle)
-    {
+
+    function getXText(rectangle) {
         return rectangle.x + (rectangle.width / 2) - (rectangle.data.label.length * 3);
     }
 
-    function getYText(rectangle)
-    {
-        return rectangle.y + (rectangle.height / 2) ;
+    function getYText(rectangle) {
+        return rectangle.y + (rectangle.height / 2);
     }
+
+    const demoSign = (
+        <a class="github-fork-ribbon" href="https://github.com/faridprogrammer/checklists" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>);
+
+    const isDemo = demo || false
 
     return (
         <Layout location={location} title={staticTitle}>
             <Helmet title={`${staticTitle} | Tags`} />
+            {isDemo && demoSign}
+
             <div>
                 <h3>Tags</h3>
-                <div id="chart" style={{"textAlign": "center"}}>
+                <div id="chart" style={{ "textAlign": "center" }}>
                     <svg width="700" height="350" >
                         {treeMap.map(mapItem => {
                             return (
-                                <g key={`${mapItem.x}:${mapItem.y}`}  fill={mapItem.data.color}>
-                                    <rect x={mapItem.x} y={mapItem.y} width={mapItem.width} height={mapItem.height} style={{"stroke-width": 3, "stroke": "rgb(255,255,255)"}}>
+                                <g key={`${mapItem.x}:${mapItem.y}`} fill={mapItem.data.color}>
+                                    <rect x={mapItem.x} y={mapItem.y} width={mapItem.width} height={mapItem.height} style={{ "stroke-width": 3, "stroke": "rgb(255,255,255)" }}>
                                     </rect>
-                                    <text x={getXText(mapItem)} y={getYText(mapItem)} fill="white" style={{"fontSize": "10"}}>
+                                    <text x={getXText(mapItem)} y={getYText(mapItem)} fill="white" style={{ "fontSize": "10" }}>
                                         {mapItem.data.label}
                                     </text>
                                 </g>
@@ -108,6 +113,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        demo
       }
     }
     allChecklistsJson(limit: 2000) {
