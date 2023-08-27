@@ -26,7 +26,6 @@ Certainly there are excelent websites and apps to find checklists. But I needed 
 
 # Output
 
-You can checkout the output of checklists on [check-lists.ir](http://check-lists.ir)
 
 # Contribute
 
