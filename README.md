@@ -25,7 +25,9 @@ The checklists available here can be gathered from elsewhere which in these case
 Certainly there are excelent websites and apps to find checklists. But I needed a simple alternative which can be easily managed.
 
 # Output
+![1](https://github.com/faridprogrammer/checklists/assets/6207351/f1a24be3-4168-49a0-92de-cfabebd9b836)
 
+![2](https://github.com/faridprogrammer/checklists/assets/6207351/54ffab2d-ab9f-471b-b779-7ce3f0b4ed49)
 
 # Contribute
 
